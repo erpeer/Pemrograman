@@ -8,7 +8,7 @@ class Bidang {
 };
 
 class Lingkaran : public Bidang {
-    private:
+    protected:
       double radius;
 
     public:
@@ -52,16 +52,12 @@ class Persegi : public Bidang {
       }
 };
 
-class Silinder : public Bidang {
+class Silinder : public Lingkaran {
     private:
       double tinggi;
-      double radius;
 
     public:
-      Silinder(double r, double t){
-        tinggi = t;
-        radius = r;
-      }
+      Silinder(double r, double t) : Lingkaran(r), tinggi(t) {}
 
       double hitungluas(){
         return 2*pi*radius*(radius + tinggi);
